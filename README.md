@@ -12,7 +12,7 @@ L     30% left side <br>
 '     30% right side <br>
  <br> <br>
 <     70% left side <br>
-/>     70% right side
+\>     70% right side
  <br> <br>
 n     toggle fullscreen app <br>
 m     maximize window <br>
