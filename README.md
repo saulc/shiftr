@@ -6,15 +6,15 @@ command+option key combos for single hand use.
 ]     50% right side <br>
  <br>
 j     50% Top side <br>
-k     50% bottom side
-L     30% left side
-;     50% middle 
-'     30% right side
-
-<     70% left side
+k     50% bottom side <br>
+L     30% left side <br>
+;     50% middle  <br>
+'     30% right side <br>
+ <br> <br>
+<     70% left side <br>
 >     70% right side
-
-n     toggle fullscreen app
-m     maximize window
+ <br> <br>
+n     toggle fullscreen app <br>
+m     maximize window <br>
 
 splt screen + basic multi screen 'scenes'
