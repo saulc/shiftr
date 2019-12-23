@@ -80,6 +80,10 @@ function sendtoScreen(s)
   hs.window.focusedWindow():moveToScreen(screen)
 end
 
+function saver()
+  hs.caffeinate.startScreensaver()
+end
+
 mash = { 'option', 'cmd' }
 hs.hotkey.bind(mash, 'up', function() activeWindow(0) end)
 hs.hotkey.bind(mash, 'down', function() activeWindow(1) end)
@@ -102,3 +106,4 @@ hs.hotkey.bind(mash, '9', function() runLayout(layouts.one) end)
 
 hs.hotkey.bind(mash, 'o', function() sendtoScreen(0) end)
 hs.hotkey.bind(mash, 'p', function() sendtoScreen(1) end)
+hs.hotkey.bind(mash, 's', nil, function() saver() end)
