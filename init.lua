@@ -7,16 +7,18 @@ units = {
   top50         = { x = 0.00, y = 1.00, w = 1.00, h = 1.00 },
   left50        = { x = 0.00, y = 0.00, w = 0.50, h = 1.00 },
   right50        = { x = 0.50, y = 0.00, w = 0.50, h = 1.00 },
-  upright30     = { x = 0.70, y = 0.00, w = 0.30, h = 0.50 },
-  botright30    = { x = 0.70, y = 0.50, w = 0.30, h = 0.50 },
+  upright30     = { x = 0.70, y = 0.00, w = 0.30, h = 0.30 },
+  botright30    = { x = 0.70, y = 0.50, w = 0.30, h = 0.30 },
   upleft70      = { x = 0.00, y = 0.00, w = 0.70, h = 0.50 },
   botleft70     = { x = 0.00, y = 0.50, w = 0.70, h = 0.50 },
-  up       = { x = 0.00, y = 0.00, w = 1.00, h = 0.50 },
-  down     = { x = 0.00, y = 0.50, w = 1.00, h = 0.50 },
+  up       = { x = 0.00, y = 0.00, w = 0.30, h = 0.50 },
+  down     = { x = 0.00, y = 0.50, w = 0.30, h = 0.50 },
   mid40        = { x = 0.30, y = 0.00, w = 0.40, h = 1.00 },
   maximum       = { x = 0.00, y = 0.00, w = 1.00, h = 1.00 }
 }
 
+
+asus = 'ASUS VT229'
 upp = 'PHL 278E9Q'
  main = 'LG HDR WFHD'
 
@@ -74,11 +76,12 @@ end
 
 function sendtoScreen(s)
   local screen
-  if s == 0 then
-    screen = hs.screen.find(main)
-  else screen = hs.screen.find(upp) end
-  hs.window.focusedWindow():moveToScreen(screen)
-end
+  if s == 0     then screen = hs.screen.find(main)
+  elseif s == 1 then screen = hs.screen.find(upp)
+  elseif s == 2 then screen = hs.screen.find(asus)
+  end
+    hs.window.focusedWindow():moveToScreen(screen)
+  end
 
 function saver()
   hs.caffeinate.startScreensaver()
@@ -104,6 +107,7 @@ hs.hotkey.bind(mash, 'n', function() toggleFullScreen() end)
 hs.hotkey.bind(mash, '0', function() runLayout(layouts.zero) end)
 hs.hotkey.bind(mash, '9', function() runLayout(layouts.one) end)
 
+hs.hotkey.bind(mash, 'i', function() sendtoScreen(2) end)
 hs.hotkey.bind(mash, 'o', function() sendtoScreen(0) end)
 hs.hotkey.bind(mash, 'p', function() sendtoScreen(1) end)
 hs.hotkey.bind(mash, 's', nil, function() saver() end)
