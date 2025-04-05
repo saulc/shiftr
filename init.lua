@@ -5,8 +5,10 @@ units = {
   left70        = { x = 0.00, y = 0.00, w = 0.70, h = 1.00 },
   left30        = { x = 0.00, y = 0.00, w = 0.30, h = 1.00 },
   top50         = { x = 0.00, y = 1.00, w = 1.00, h = 1.00 },
-  left50        = { x = 0.00, y = 0.00, w = 0.50, h = 1.00 },
-  right50        = { x = 0.50, y = 0.00, w = 0.50, h = 1.00 },
+  left50        = { x = 0.00, y = 0.00, w = 0.50, h = 0.50 },
+  right50       = { x = 0.50, y = 0.00, w = 0.50, h = 0.50 },
+  bleft50        = { x = 0.00, y = 1.00, w = 0.50, h = 0.50 },
+  bright50       = { x = 0.50, y = 1.00, w = 0.50, h = 0.50 },
   upright30     = { x = 0.70, y = 0.00, w = 0.30, h = 0.30 },
   botright30    = { x = 0.70, y = 0.50, w = 0.30, h = 0.30 },
   upleft70      = { x = 0.00, y = 0.00, w = 0.70, h = 0.50 },
@@ -14,6 +16,7 @@ units = {
   up       = { x = 0.00, y = 0.00, w = 0.30, h = 0.50 },
   down     = { x = 0.00, y = 0.50, w = 0.30, h = 0.50 },
   mid40        = { x = 0.30, y = 0.00, w = 0.40, h = 1.00 },
+  mid70        = { x = 0.15, y = 0.00, w = 0.70, h = 1.00 },
   maximum       = { x = 0.00, y = 0.00, w = 1.00, h = 1.00 }
 }
 
@@ -83,6 +86,18 @@ function sendtoScreen(s)
     hs.window.focusedWindow():moveToScreen(screen)
   end
 
+function four()
+  
+  hs.window.focusedWindow():move(units.right50,  nil, true) 
+  activeWindow(1) 
+  hs.window.focusedWindow():move(units.left50,   nil, true) 
+  activeWindow(1) 
+  hs.window.focusedWindow():move(units.bright50,   nil, true) 
+  activeWindow(1) 
+  hs.window.focusedWindow():move(units.bleft50,   nil, true) 
+  end
+
+
 function saver()
   hs.caffeinate.startScreensaver()
 end
@@ -95,6 +110,10 @@ hs.hotkey.bind(mash, 'right', function() activeWindow(2) end)
 hs.hotkey.bind(mash, '.', function() hs.window.focusedWindow():move(units.right70,  nil, true) end)
 hs.hotkey.bind(mash, ',', function() hs.window.focusedWindow():move(units.left70,   nil, true) end)
 
+hs.hotkey.bind(mash, '=', function() hs.window.focusedWindow():move(units.bright50,  nil, true) end)
+hs.hotkey.bind(mash, '-', function() hs.window.focusedWindow():move(units.bleft50,   nil, true) end)
+hs.hotkey.bind(mash, '\\', function() four() end)
+
 hs.hotkey.bind(mash, ']', function() hs.window.focusedWindow():move(units.right50,  nil, true) end)
 hs.hotkey.bind(mash, '[', function() hs.window.focusedWindow():move(units.left50,   nil, true) end)
 hs.hotkey.bind(mash, 'j', function() hs.window.focusedWindow():move(units.up,     nil, true) end)
@@ -102,6 +121,7 @@ hs.hotkey.bind(mash, 'k', function() hs.window.focusedWindow():move(units.down, 
 hs.hotkey.bind(mash, 'l', function() hs.window.focusedWindow():move(units.left30,    nil, true) end)
 hs.hotkey.bind(mash, ";", function() hs.window.focusedWindow():move(units.mid40,  nil, true) end)
 hs.hotkey.bind(mash, "'", function() hs.window.focusedWindow():move(units.right30, nil, true) end)
+hs.hotkey.bind(mash, "/", function() hs.window.focusedWindow():move(units.mid70,  nil, true) end)
 hs.hotkey.bind(mash, 'm', function() hs.window.focusedWindow():move(units.maximum,    nil, true) end)
 hs.hotkey.bind(mash, 'n', function() toggleFullScreen() end)
 hs.hotkey.bind(mash, '0', function() runLayout(layouts.zero) end)
